@@ -10,8 +10,16 @@ const Header = () => {
 
       <nav>
         <ul className="flex gap-4">
-          <li className="hover:underline cursor-pointer">About</li>
-          <li className="hover:underline cursor-pointer">Contact</li>
+          <li>
+            <Link href="/about" className="hover:underline cursor-pointer">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" className="hover:underline cursor-pointer">
+              Contact
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
