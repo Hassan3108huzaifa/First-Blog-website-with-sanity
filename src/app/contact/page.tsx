@@ -15,14 +15,10 @@ const ContactPage = () => {
     setStatus("loading");
     
     try {
-      // Here you would typically send the data to your backend
-      // For demo, we'll simulate an API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-      
-      // Reset success message after 3 seconds
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
       setStatus("error");
