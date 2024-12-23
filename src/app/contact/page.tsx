@@ -26,6 +26,7 @@ const ContactPage = () => {
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
       setStatus("error");
+      console.log(error);
       setTimeout(() => setStatus("idle"), 3000);
     }
   };

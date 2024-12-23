@@ -31,7 +31,7 @@ const AboutPage = () => {
           
           <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
           <p className="text-gray-600 mb-6">
-            Founded in 2024, we've been passionate about sharing knowledge and 
+            Founded in 2024, we&apos;ve been passionate about sharing knowledge and 
             connecting people through meaningful content. Our journey started with 
             a simple idea: make complex topics accessible to everyone.
           </p>
