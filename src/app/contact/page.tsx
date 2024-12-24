@@ -1,37 +1,42 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 
 const ContactPage = () => {
+
+  // Form ka data aik object ki shakal me store ho ga
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  // state ko manage kia ja rha he with the help of explicit types
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
+    // Form submit hone pe default behavior ko rokna
     e.preventDefault();
     setStatus("loading");
     
     try {
-      // Here you would typically send the data to your backend
-      // For demo, we'll simulate an API call
+      // yaha pe aik simple timeout he take jab user form submit kare to 3 second lage take suspense bana rahe :)
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setStatus("success");
+      // Form data ko reset karna
       setFormData({ name: "", email: "", message: "" });
       
-      // Reset success message after 3 seconds
+      // Success message ko 3 second baad reset karna
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
       setStatus("error");
       console.log(error);
+      // Error message ko 3 second baad reset karna
       setTimeout(() => setStatus("idle"), 3000);
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // Form data ko update karna jab user input change kare
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
@@ -40,18 +45,14 @@ const ContactPage = () => {
 
   return (
     <div className="px-4 sm:px-10 py-5 md:px-24 max-w-[1000px] mx-auto">
-      <motion.h1 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <h1 
         className="text-4xl font-bold mb-8 text-center"
       >
         Contact Us
-      </motion.h1>
+      </h1>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+        <div 
           className="bg-white rounded-lg shadow-md p-6"
         >
           <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
@@ -93,11 +94,9 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+        <div 
           className="bg-white rounded-lg shadow-md p-6"
         >
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -151,29 +150,25 @@ const ContactPage = () => {
             </button>
 
             {status === "success" && (
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+              <p 
                 className="text-green-600 text-center"
               >
                 Message sent successfully!
-              </motion.p>
+              </p>
             )}
 
             {status === "error" && (
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+              <p 
                 className="text-red-600 text-center"
               >
                 Failed to send message. Please try again.
-              </motion.p>
+              </p>
             )}
           </form>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ContactPage; 
+export default ContactPage;

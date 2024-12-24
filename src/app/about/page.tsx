@@ -1,24 +1,19 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const AboutPage = () => {
   return (
     <div className="px-4 sm:px-10 py-5 md:px-24 max-w-[1000px] mx-auto">
-      <motion.h1 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <h1 
         className="text-4xl font-bold mb-8 text-center"
       >
         About Us
-      </motion.h1>
+      </h1>
       
       <div className="grid md:grid-cols-2 gap-8">
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="bg-white rounded-lg shadow-md p-6"
+        <div 
+        className="bg-white rounded-lg shadow-md p-6"
         >
           <div className="relative h-[200px] mb-6 overflow-hidden rounded-lg">
             <Image
@@ -35,11 +30,9 @@ const AboutPage = () => {
             connecting people through meaningful content. Our journey started with 
             a simple idea: make complex topics accessible to everyone.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+        <div 
           className="bg-white rounded-lg shadow-md p-6"
         >
           <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
@@ -58,25 +51,20 @@ const AboutPage = () => {
                 "Community-Driven Approach",
                 "Continuous Innovation"
               ].map((item, index) => (
-                <motion.li 
+                <li 
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
                   className="flex items-center space-x-2"
                 >
                   <span className="h-2 w-2 bg-blue-500 rounded-full" />
                   <span className="text-gray-700">{item}</span>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+      <div 
         className="mt-8 bg-white rounded-lg shadow-md p-6"
       >
         <h2 className="text-2xl font-semibold mb-6 text-center">Our Team</h2>
@@ -86,11 +74,8 @@ const AboutPage = () => {
             { name: "Jane Smith", role: "Content Director" },
             { name: "Mike Johnson", role: "Technical Lead" }
           ].map((member, index) => (
-            <motion.div 
+            <div 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
               className="text-center p-4 rounded-lg hover:bg-gray-50 transition-colors"
             >
               <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 overflow-hidden">
@@ -104,10 +89,10 @@ const AboutPage = () => {
               </div>
               <h3 className="font-semibold text-lg">{member.name}</h3>
               <p className="text-gray-600">{member.role}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
