@@ -18,14 +18,15 @@ const ContactPage = () => {
     setStatus("loading");
     
     try {
-      // yaha pe aik simple timeout he take jab user form submit kare to 3 second lage take suspense bana rahe :)
+      // Here you would typically send the data to your backend
+      // For demo, we'll simulate an API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setStatus("success");
       // Form data ko reset karna
       setFormData({ name: "", email: "", message: "" });
       
-      // Success message ko 3 second baad reset karna
+      // Reset success message after 3 seconds
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
       setStatus("error");
@@ -171,4 +172,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default ContactPage; 
