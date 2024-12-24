@@ -18,8 +18,7 @@ const ContactPage = () => {
     setStatus("loading");
     
     try {
-      // Here you would typically send the data to your backend
-      // For demo, we'll simulate an API call
+
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setStatus("success");
